@@ -1,0 +1,27 @@
+<%= form_for [@station, @platform], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.hidden_field :station_id, :value => @station.id, :class => 'number_field' %>
+  <div class="control-group">
+    <%= f.label :northeast_track_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= collection_select(:platform, :northeast_track_id, @tracks, :id, :direction, { :include_blank => true }) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :southwest_track_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= collection_select(:platform, :southwest_track_id, @tracks, :id, :direction, { :include_blank => true }) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :heading, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :heading, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                station_platforms_path, :class => 'btn' %>
+  </div>
+<% end %>

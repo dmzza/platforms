@@ -15,8 +15,8 @@
     <% @stations.each do |station| %>
       <tr>
         <td><%= link_to station.id, station_path(station) %></td>
-        <td><%= station.name %></td>
         <td><%=l station.created_at %></td>
+        <td><%= link_to station.name, station_platforms_path(station) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_station_path(station), :class => 'btn btn-mini' %>

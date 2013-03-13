@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StationsControllerTest < ActionController::TestCase
   setup do
-    @station = stations(:one)
+    @station = stations(:eighthave)
   end
 
   test "should get index" do

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  station: thirdave
+  northeast_track: 
+  southwest_track: manhattan
+  heading: "8th Avenue"
+
+two:
+  station: thirdave
+  northeast_track: brooklyn
+  southwest_track: 
+  heading: "1st Ave/Brooklyn"

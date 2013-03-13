@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TracksControllerTest < ActionController::TestCase
   setup do
-    @track = tracks(:one)
+    @track = tracks(:manhattan)
   end
 
   test "should get index" do

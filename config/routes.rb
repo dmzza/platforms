@@ -2,7 +2,9 @@ Platforms::Application.routes.draw do
   resources :tracks
 
 
-  resources :stations
+  resources :stations do
+    resources :platforms
+  end
 
 
   # The priority is based upon order of creation:

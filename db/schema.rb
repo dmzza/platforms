@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313092322) do
+ActiveRecord::Schema.define(:version => 20130313094314) do
+
+  create_table "platforms", :force => true do |t|
+    t.integer  "station_id"
+    t.integer  "northeast_track_id"
+    t.integer  "southwest_track_id"
+    t.string   "heading"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "platforms", ["northeast_track_id"], :name => "index_platforms_on_northeast_track_id"
+  add_index "platforms", ["southwest_track_id"], :name => "index_platforms_on_southwest_track_id"
+  add_index "platforms", ["station_id"], :name => "index_platforms_on_station_id"
 
   create_table "stations", :force => true do |t|
     t.string   "name"
