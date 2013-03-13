@@ -1,4 +1,7 @@
 Platforms::Application.routes.draw do
+  resources :tracks
+
+
   resources :stations
 
 
