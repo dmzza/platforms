@@ -2,6 +2,8 @@
 
 manhattan:
   direction: "8th Ave"
+  terminal: eighthave
 
 brooklyn:
   direction: "Canarsie"
+  terminal: rockawayparkway

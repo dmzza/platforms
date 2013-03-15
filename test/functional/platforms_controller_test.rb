@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PlatformsControllerTest < ActionController::TestCase
   setup do
-    @platform = platforms(:one)
+    @platform = platforms(:eighthaveL)
     @station = stations(:thirdave)
   end
 

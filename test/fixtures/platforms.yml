@@ -1,13 +1,24 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+eighthaveL:
+  station: eighthave
+  northeast_track: manhattan
+  southwest_track: brooklyn
+  heading: "1st Ave/Brooklyn"
+
+thirdaveLmanhattan:
   station: thirdave
   northeast_track: 
   southwest_track: manhattan
   heading: "8th Avenue"
 
-two:
+thirdaveLbrooklyn:
   station: thirdave
   northeast_track: brooklyn
   southwest_track: 
   heading: "1st Ave/Brooklyn"
+
+rockawayparkwayL:
+  station: rockawayparkway
+  northeast_track: manhattan
+  southwest_track: brooklyn

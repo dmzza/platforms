@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313094314) do
+ActiveRecord::Schema.define(:version => 20130315005043) do
 
   create_table "platforms", :force => true do |t|
     t.integer  "station_id"
@@ -34,8 +34,9 @@ ActiveRecord::Schema.define(:version => 20130313094314) do
 
   create_table "tracks", :force => true do |t|
     t.string   "direction"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "terminal_id"
   end
 
 end

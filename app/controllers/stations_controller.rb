@@ -1,8 +1,19 @@
 class StationsController < ApplicationController
+  before_filter :find_track
+
+  def find_track
+    if params.has_key? :track_id
+      @track = Track.find(params[:track_id])
+    end
+  end
   # GET /stations
   # GET /stations.json
   def index
-    @stations = Station.all
+    if @track.nil?
+      @stations = Station.all
+    else
+      @stations = @track.stations
+    end
 
     respond_to do |format|
       format.html # index.html.erb

@@ -14,7 +14,7 @@
     <% @tracks.each do |track| %>
       <tr>
         <td><%= link_to track.id, track_path(track) %></td>
-        <td><%= track.direction %></td>
+        <td><%= link_to track.direction, track_stations_path(track) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_track_path(track), :class => 'btn' %>

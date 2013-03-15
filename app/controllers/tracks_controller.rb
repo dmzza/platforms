@@ -25,6 +25,7 @@ class TracksController < ApplicationController
   # GET /tracks/new.json
   def new
     @track = Track.new
+    @stations = Station.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class TracksController < ApplicationController
   # GET /tracks/1/edit
   def edit
     @track = Track.find(params[:id])
+    @stations = Station.all
   end
 
   # POST /tracks
