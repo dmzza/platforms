@@ -3,10 +3,17 @@ require 'test_helper'
 class StationsControllerTest < ActionController::TestCase
   setup do
     @station = stations(:eighthave)
+    @route = routes(:manhattan)
   end
 
   test "should get index" do
     get :index
+    assert_response :success
+    assert_not_nil assigns(:stations)
+  end
+
+  test "should get route nested index" do
+    get :index, :route_id => @route.id
     assert_response :success
     assert_not_nil assigns(:stations)
   end

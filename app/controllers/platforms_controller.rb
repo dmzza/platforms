@@ -32,7 +32,7 @@ class PlatformsController < ApplicationController
   # GET /platforms/new.json
   def new
     @platform = Platform.new
-    @tracks = Track.find(:all)
+    @routes = Route.find(:all)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,7 +43,7 @@ class PlatformsController < ApplicationController
   # GET /platforms/1/edit
   def edit
     @platform = Platform.find(params[:id])
-    @tracks = Track.find(:all)
+    @routes = Route.find(:all)
   end
 
   # POST /platforms

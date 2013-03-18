@@ -2,23 +2,23 @@
 
 eighthaveL:
   station: eighthave
-  northeast_track: manhattan
-  southwest_track: brooklyn
+  northeast_route: manhattan
+  southwest_route: brooklyn
   heading: "1st Ave/Brooklyn"
 
 thirdaveLmanhattan:
   station: thirdave
-  northeast_track: 
-  southwest_track: manhattan
+  northeast_route: 
+  southwest_route: manhattan
   heading: "8th Avenue"
 
 thirdaveLbrooklyn:
   station: thirdave
-  northeast_track: brooklyn
-  southwest_track: 
+  northeast_route: brooklyn
+  southwest_route: 
   heading: "1st Ave/Brooklyn"
 
 rockawayparkwayL:
   station: rockawayparkway
-  northeast_track: manhattan
-  southwest_track: brooklyn
+  northeast_route: manhattan
+  southwest_route: brooklyn

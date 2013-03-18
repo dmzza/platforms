@@ -6,8 +6,8 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:northeast_track_id) %></th>
-      <th><%= model_class.human_attribute_name(:southwest_track_id) %></th>
+      <th><%= model_class.human_attribute_name(:northeast_route_id) %></th>
+      <th><%= model_class.human_attribute_name(:southwest_route_id) %></th>
       <th><%= model_class.human_attribute_name(:heading) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -16,8 +16,8 @@
     <% @platforms.each do |platform| %>
       <tr>
         <td><%= link_to platform.id, station_platform_path(@station, platform) %></td>
-        <td><%= platform.northeast_track ? platform.northeast_track.direction : "" %></td>
-        <td><%= platform.southwest_track ? platform.southwest_track.direction : "" %></td>
+        <td><%= platform.northeast_route ? platform.northeast_route.direction : "" %></td>
+        <td><%= platform.southwest_route ? platform.southwest_route.direction : "" %></td>
         <td><%= platform.heading %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

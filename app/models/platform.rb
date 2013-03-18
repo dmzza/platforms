@@ -1,7 +1,7 @@
 class Platform < ActiveRecord::Base
-	attr_accessible :heading, :station_id, :northeast_track_id, :southwest_track_id
+	attr_accessible :heading, :station_id, :northeast_route_id, :southwest_route_id
 
   belongs_to :station
-  belongs_to :northeast_track, :class_name => "Track"
-  belongs_to :southwest_track, :class_name => "Track"
+  belongs_to :northeast_route, :class_name => "Route"
+  belongs_to :southwest_route, :class_name => "Route"
 end

@@ -6,10 +6,10 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:station_id) %>:</strong></dt>
   <dd><%= @platform.station_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:northeast_track_id) %>:</strong></dt>
-  <dd><%= @platform.northeast_track ? @platform.northeast_track.direction : "" %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:southwest_track_id) %>:</strong></dt>
-  <dd><%= @platform.southwest_track ? @platform.southwest_track.direction : "" %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:northeast_route_id) %>:</strong></dt>
+  <dd><%= @platform.northeast_route ? @platform.northeast_route.direction : "" %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:southwest_route_id) %>:</strong></dt>
+  <dd><%= @platform.southwest_route ? @platform.southwest_route.direction : "" %></dd>
   <dt><strong><%= model_class.human_attribute_name(:heading) %>:</strong></dt>
   <dd><%= @platform.heading %></dd>
 </dl>

@@ -1,18 +1,18 @@
 class StationsController < ApplicationController
-  before_filter :find_track
+  before_filter :find_route
 
-  def find_track
-    if params.has_key? :track_id
-      @track = Track.find(params[:track_id])
+  def find_route
+    if params.has_key? :route_id
+      @route = Route.find(params[:route_id])
     end
   end
   # GET /stations
   # GET /stations.json
   def index
-    if @track.nil?
+    if @route.nil?
       @stations = Station.all
     else
-      @stations = @track.stations
+      @stations = @route.stations
     end
 
     respond_to do |format|

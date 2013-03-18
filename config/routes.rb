@@ -1,6 +1,14 @@
 Platforms::Application.routes.draw do
-  resources :tracks do
-    resources :stations
+  resources :routes do
+    resources :stations do
+      collection do
+        get 'select'
+      end
+      member do
+        get 'step2'
+        match 'to/:to_id' => 'stations#to', :as => :to
+      end
+    end
   end
 
 

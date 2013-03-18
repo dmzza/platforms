@@ -1,20 +1,20 @@
-<%- model_class = @track.class -%>
+<%- model_class = @route.class -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:direction) %>:</strong></dt>
-  <dd><%= @track.direction %></dd>
+  <dd><%= @route.direction %></dd>
 </dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              tracks_path, :class => 'btn'  %>
+              routes_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_track_path(@track), :class => 'btn' %>
+              edit_route_path(@route), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              track_path(@track),
+              route_path(@route),
               :method => 'delete',
               :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
               :class => 'btn btn-danger' %>

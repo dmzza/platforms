@@ -11,32 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130315005043) do
+ActiveRecord::Schema.define(:version => 20130318012945) do
 
   create_table "platforms", :force => true do |t|
     t.integer  "station_id"
-    t.integer  "northeast_track_id"
-    t.integer  "southwest_track_id"
+    t.integer  "northeast_route_id"
+    t.integer  "southwest_route_id"
     t.string   "heading"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
 
-  add_index "platforms", ["northeast_track_id"], :name => "index_platforms_on_northeast_track_id"
-  add_index "platforms", ["southwest_track_id"], :name => "index_platforms_on_southwest_track_id"
+  add_index "platforms", ["northeast_route_id"], :name => "index_platforms_on_northeast_track_id"
+  add_index "platforms", ["southwest_route_id"], :name => "index_platforms_on_southwest_track_id"
   add_index "platforms", ["station_id"], :name => "index_platforms_on_station_id"
+
+  create_table "routes", :force => true do |t|
+    t.string   "direction"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "terminal_id"
+    t.string   "name"
+  end
 
   create_table "stations", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "tracks", :force => true do |t|
-    t.string   "direction"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "terminal_id"
   end
 
 end
