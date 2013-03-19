@@ -21,6 +21,42 @@ class StationsController < ApplicationController
     end
   end
 
+  def select
+    if @route.nil?
+      @stations = Station.all
+    else
+      @stations = @route.stations
+    end
+
+    respond_to do |format|
+      format.html { render :layout => "mobile" } # select.html.erb
+      format.json { render json: @stations }
+    end
+  end
+
+  def step2
+    if @route.nil?
+      @stations = Station.all
+    else
+      @stations = @route.stations
+    end
+    @from = Station.find(params[:id])
+
+    render :action => "select", :layout => "mobile"
+  end
+
+  def to
+   if @route.nil?
+      @stations = Station.all
+    else
+      @stations = @route.stations
+    end
+    @from = Station.find(params[:id])
+    @to = Station.find(params[:to_id])
+
+    render :action => "select", :layout => "mobile"
+  end
+
   # GET /stations/1
   # GET /stations/1.json
   def show

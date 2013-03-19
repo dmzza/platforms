@@ -1,3 +1,56 @@
 // Place all the styles related to the Stations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul {
+	margin: 0;
+	padding: 0;
+	margin-top: 10px;
+	margin-bottom: 100px;
+}
+
+li {
+	list-style: none;
+	@include transition (all 0.2s ease-in-out);
+	a {
+		position: relative;
+		text-decoration: none;
+		width: 90%;
+		display: block;
+		padding: 12px 20px;
+	}
+	&.from, &.to {
+		background-color: #334;
+		a {
+			color: white;
+		}
+	}
+	&.passed {
+		background-color: #DADAEA;
+	}
+	&:hover {
+		background-color: #DDD;
+	}
+}
+
+.instructions {
+	position: fixed;
+	bottom: 0px;
+	left: 0;
+	width: 100%;
+	background-color: #334;
+	color: white;
+	padding: 20px 0;
+	margin: 0 !important;
+	text-align: center;
+}
+
+.route-name {
+	background-color: #A5A5A5;
+	padding: 10px 18px;
+	margin-right: 10px;
+	border-radius: 50px;
+	display: inline;
+	font-size: 1.1em;
+	font-family: "Helvetica";
+}

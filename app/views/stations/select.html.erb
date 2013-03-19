@@ -1,0 +1,30 @@
+<ul>
+<% @stations.each do |station| %>
+	<li class="<% if !@from.nil? && @from == station %>from<% end %><% if !@to.nil? %><% if @to == station %>to<% elsif @passed %>passed<% end %><% end %>">
+		<% if @from.nil? %>
+		<%= link_to station.name, step2_route_station_path(@route, station) %>
+		<% elsif @to.nil? && @from != station %>
+		<%= link_to station.name, to_route_station_path(@route, @from, station) %>
+		<% else %>
+		<a href="#"><%= station.name %></a>
+		<% end %>
+	</li>
+	<%
+	if !@from.nil? && @from == station
+		@passed = true
+	elsif @to == station
+		@passed = false
+	end
+	%>
+<% end %>
+</ul>
+
+<div class="instructions">
+	<% if @from.nil? %>
+	<h2><div class="route-name"><%= @route.name %></div> DEPARTING FROM</h2>
+	<% elsif @to.nil? %>
+	<h2><div class="route-name"><%= @route.name %></div> ARRIVING AT</h2>
+	<% else %>
+	<h2><a class="btn btn-large">I'M ON THE TRAIN</a></h2>
+	<% end %>
+</div>
