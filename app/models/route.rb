@@ -16,4 +16,13 @@ class Route < ActiveRecord::Base
 		collection
 	end
 
+	def platforms
+		collection = northeast_platforms + southwest_platforms
+
+		collection = collection.sort{|a, b| b.id <=> a.id}
+		if collection[0].station.id == terminal.id
+			collection = collection.sort{|a, b| a.id <=> b.id}
+		end
+		collection
+	end
 end

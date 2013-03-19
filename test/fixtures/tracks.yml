@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  duration: 1
+  lesser_platform: thirdaveLmanhattan
+  greater_platform: firstaveLmanhattan
+  route: manhattan
+
+two:
+  duration: 1
+  lesser_platform: thirdaveLbrooklyn
+  greater_platform: firstaveLbrooklyn
+  route: brooklyn

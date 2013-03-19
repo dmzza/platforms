@@ -4,4 +4,8 @@ class Platform < ActiveRecord::Base
   belongs_to :station
   belongs_to :northeast_route, :class_name => "Route"
   belongs_to :southwest_route, :class_name => "Route"
+
+  def name
+  	id.to_s + ": " + station.name.to_s + " - " + heading.to_s
+  end
 end

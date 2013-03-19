@@ -9,6 +9,7 @@ Platforms::Application.routes.draw do
         match 'to/:to_id' => 'stations#to', :as => :to
       end
     end
+    resources :tracks
   end
 
 

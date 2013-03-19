@@ -1,24 +1,42 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 eighthaveL:
+  id: 1
   station: eighthave
   northeast_route: manhattan
   southwest_route: brooklyn
   heading: "1st Ave/Brooklyn"
 
 thirdaveLmanhattan:
+  id: 2
   station: thirdave
-  northeast_route: 
+  northeast_route:
   southwest_route: manhattan
   heading: "8th Avenue"
 
 thirdaveLbrooklyn:
+  id: 3
   station: thirdave
   northeast_route: brooklyn
-  southwest_route: 
+  southwest_route:
   heading: "1st Ave/Brooklyn"
 
+firstaveLmanhattan:
+  id: 4
+  station: firstave
+  northeast_route:
+  southwest_route: manhattan
+  heading: "8th Avenue"
+
+firstaveLbrooklyn:
+  id: 5
+  station: firstave
+  northeast_route: brooklyn
+  southwest_route:
+  heading: "Brooklyn"
+
 rockawayparkwayL:
+  id: 6
   station: rockawayparkway
   northeast_route: manhattan
   southwest_route: brooklyn
