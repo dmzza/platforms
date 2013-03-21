@@ -11,3 +11,15 @@ two:
   lesser_platform: thirdaveLbrooklyn
   greater_platform: firstaveLbrooklyn
   route: brooklyn
+
+three:
+  duration: 1
+  lesser_platform: eighthaveL
+  greater_platform: thirdaveLbrooklyn
+  route: brooklyn
+
+four:
+  duration: 1
+  lesser_platform: thirdaveLbrooklyn
+  greater_platform: rockawayparkwayL
+  route: brooklyn
