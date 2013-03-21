@@ -1,24 +1,44 @@
 <%= form_for [@route, @track], :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.hidden_field :route_id, :value => @route.id %>
-
+  <% if @route.is_reversed %>
+  <div class="control-group">
+    <%= f.label :greater_platform_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= collection_select(:track, :greater_platform_id, @platforms, :id, :name, { :include_blank => true }) %>
+    </div>
+  </div>
   <div class="control-group">
     <%= f.label :lesser_platform_id, :class => 'control-label' %>
     <div class="controls">
-      <%= collection_select(:platform, :lesser_platform_id, @platforms, :id, :name, { :include_blank => true }) %>
+      <%= collection_select(:track, :lesser_platform_id, @platforms, :id, :name, { :include_blank => true }) %>
+    </div>
+  </div>
+  <% else %>
+  <div class="control-group">
+    <%= f.label :lesser_platform_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= collection_select(:track, :lesser_platform_id, @platforms, :id, :name, { :include_blank => true }) %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :greater_platform_id, :class => 'control-label' %>
     <div class="controls">
-      <%= collection_select(:platform, :greater_platform_id, @platforms, :id, :name, { :include_blank => true }) %>
+      <%= collection_select(:track, :greater_platform_id, @platforms, :id, :name, { :include_blank => true }) %>
     </div>
   </div>
+  <% end %>
   <div class="control-group">
     <%= f.label :duration_in_seconds, :class => 'control-label' %>
     <div class="controls">
       <%= f.number_field :duration, :class => 'number_field' %>
     </div>
   </div>
+  <!-- <div class="control-group">
+    <%= f.label :route_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :route_id, :class => 'number_field' %>
+    </div>
+  </div> -->
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
