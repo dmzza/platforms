@@ -3,7 +3,7 @@
   <%= link_to t('.new', :default => t("helpers.links.new")),
             new_station_path,
             :class => 'btn btn-primary pull-right' %>
-  <h2><% if !@route.nil? %><img src="http://www.mta.info/siteimages/subwaybullets/36px/<%= @route.name %>.png" alt="<%= @route.name %>" /> <%= @route.direction %> Bound <% end %><%=t '.title', :default => model_class.model_name.human.pluralize %> / <%= link_to "Tracks", route_tracks_path(@route) %></h2>
+  <h2><% if !@route.nil? %><img src="http://www.mta.info/siteimages/subwaybullets/36px/<%= @route.name %>.png" alt="<%= @route.name %>" /> <%= @route.direction %> Bound Stations / <%= link_to "Tracks", route_tracks_path(@route) %><% end %> Stations</h2>
 </div>
 <table class="table table-striped">
   <thead>
