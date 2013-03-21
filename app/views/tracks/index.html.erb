@@ -1,6 +1,9 @@
 <%- model_class = Track.new.class -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+            new_route_track_path(@route),
+            :class => 'btn btn-primary pull-right' %>
+  <h2><% if !@route.nil? %><img src="http://www.mta.info/siteimages/subwaybullets/36px/<%= @route.name %>.png" alt="<%= @route.name %>" /> <%= @route.direction %> Bound <% end %><%=t '.title', :default => model_class.model_name.human.pluralize %> / <%= link_to "Stations", route_stations_path(@route) %></h2>
 </div>
 <table class="table table-striped">
   <thead>
