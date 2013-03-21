@@ -9,23 +9,30 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:duration) %></th>
-      <th><%= model_class.human_attribute_name(:lesser_platform_id) %></th>
-      <th><%= model_class.human_attribute_name(:greater_platform_id) %></th>
-      <th><%= model_class.human_attribute_name(:route_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:station) %></th>
+      <th><%= model_class.human_attribute_name(:heading) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @tracks.each do |track| %>
       <tr>
+        <% if @route.is_reversed %>
+        <td></td>
+        <td><%= link_to track.greater_platform.station.name, route_station_path(@route, track.greater_platform.station) %></td>
+        <td><%= link_to track.greater_platform.heading, station_platform_path(track.greater_platform.station, track.greater_platform) %></td>
+        <td></td>
+        <% else %>
+        <td></td>
+        <td><%= link_to track.lesser_platform.station.name, route_station_path(@route, track.lesser_platform.station) %></td>
+        <td><%= link_to track.lesser_platform.heading, station_platform_path(track.lesser_platform.station, track.lesser_platform) %></td>
+        <td></td>
+        <% end %>
+      </tr>
+      <tr>
         <td><%= link_to track.id, route_track_path(@route, track) %></td>
-        <td><%= track.duration %></td>
-        <td><%= track.lesser_platform_id %></td>
-        <td><%= track.greater_platform_id %></td>
-        <td><%= track.route_id %></td>
-        <td><%=l track.created_at %></td>
+        <td><%= track.duration %> seconds</td>
+        <td></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_route_track_path(@route, track), :class => 'btn btn-mini' %>
