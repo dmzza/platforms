@@ -22,11 +22,7 @@ class StationsController < ApplicationController
   end
 
   def select
-    if @route.nil?
-      @stations = Station.all
-    else
-      @stations = @route.stations
-    end
+    @stations = @route.stations
 
     respond_to do |format|
       format.html { render :layout => "mobile" } # select.html.erb
@@ -35,24 +31,37 @@ class StationsController < ApplicationController
   end
 
   def step2
-    if @route.nil?
-      @stations = Station.all
-    else
-      @stations = @route.stations
-    end
+    @stations = @route.stations
     @from = Station.find(params[:id])
 
     render :action => "select", :layout => "mobile"
   end
 
   def to
-   if @route.nil?
-      @stations = Station.all
-    else
-      @stations = @route.stations
-    end
+    @stations = @route.stations
+    @tracks = @route.tracks
     @from = Station.find(params[:id])
     @to = Station.find(params[:to_id])
+    @estimate = 0
+    @between = false
+
+    @tracks.each do |track|
+      if @route.is_reversed
+        @between = false
+      else
+        if track.lesser_platform.station == @from
+          @between = true
+        elsif track.lesser_platform.station == @to
+          @between = false
+        end
+      end
+      if @between
+        @estimate += track.duration
+        if (!@route.is_reversed && track.greater_platform.station != @to) || (@route.is_reversed && track.lesser_platform.station != @to)
+          @estimate += 14 # average minimum platform wait time
+        end
+      end
+    end
 
     render :action => "select", :layout => "mobile"
   end

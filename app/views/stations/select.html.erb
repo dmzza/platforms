@@ -25,6 +25,6 @@
 	<% elsif @to.nil? %>
 	<h2><div class="route-name"><%= @route.name %></div> ARRIVING AT</h2>
 	<% else %>
-	<h2><a class="btn btn-large">I'M ON THE TRAIN</a></h2>
+	<h2><a class="btn btn-large">I'M ON THE TRAIN - <%= Time.at(@estimate).utc.strftime("%H:%M:%S") %></a></h2>
 	<% end %>
 </div>
