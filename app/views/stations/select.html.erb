@@ -1,23 +1,66 @@
-<ul>
-<% @stations.each do |station| %>
-	<li class="<% if !@from.nil? && @from == station %>from<% end %><% if !@to.nil? %><% if @to == station %>to<% elsif @between %>between<% end %><% end %>">
-		<% if @from.nil? %>
-		<%= link_to station.name, step2_route_station_path(@route, station) %>
-		<% elsif @to.nil? && @from != station %>
-		<%= link_to station.name, to_route_station_path(@route, @from, station) %>
-		<% else %>
-		<%= link_to station.name, step2_route_station_path(@route, station) %>
-		<% end %>
-	</li>
-	<%
-	if !@from.nil? && @from == station
-		@between = true
-	elsif @to == station
-		@between = false
-	end
-	%>
-<% end %>
-</ul>
+<div class="accordion page-top" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        From <% if !@from.nil? %><%= @from.name %><% end %>
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse<% if @from.nil? %> in<% end %>">
+      <div class="accordion-inner">
+        <ul>
+				<% @stations.each do |station| %>
+					<li class="<% if !@from.nil? && @from == station %>from<% end %><% if !@to.nil? %><% if @to == station %>to unfocused<% elsif @between %>between<% end %><% end %>">
+						<% if !@to.nil? && (@between.nil? || @between == true) %>
+						<%= link_to station.name, to_route_station_path(@route, station, @to) %>
+						<% else %>
+						<%= link_to station.name, step2_route_station_path(@route, station) %>
+						<% end %>
+					</li>
+					<%
+					if !@from.nil? && @from == station
+						@between = true
+					elsif @to == station
+						@between = false
+					end
+					%>
+				<% end %>
+				</ul>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        To <% if !@to.nil? %><%= @to.name %><% end %>
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse<% if !@from.nil? && @to.nil? %> in<% end %>">
+      <div class="accordion-inner">
+      	<ul>
+      	<% @between = nil %>
+				<% @stations.each do |station| %>
+					<li class="<% if !@from.nil? && @from == station %>from unfocused<% end %><% if !@to.nil? %><% if @to == station %>to<% elsif @between %>between<% end %><% end %>">
+						<% if @from.nil? %>
+						<%= link_to station.name, step2_route_station_path(@route, station) %>
+						<% elsif @between == true || @between == false %>
+						<%= link_to station.name, to_route_station_path(@route, @from, station) %>
+						<% else %>
+						<%= link_to station.name, step2_route_station_path(@route, station) %>
+						<% end %>
+					</li>
+					<%
+					if !@from.nil? && @from == station
+						@between = true
+					elsif @to == station
+						@between = false
+					end
+					%>
+				<% end %>
+				</ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="instructions">
 	<% if @from.nil? %>

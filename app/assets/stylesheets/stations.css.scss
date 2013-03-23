@@ -1,12 +1,13 @@
 // Place all the styles related to the Stations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.page-top {
+	margin-top: 100px;
+}
 ul {
 	margin: 0;
 	padding: 0;
 	margin-top: 10px;
-	margin-bottom: 100px;
 }
 
 li {
@@ -35,7 +36,7 @@ li {
 
 .instructions {
 	position: fixed;
-	bottom: 0px;
+	top: 0px;
 	left: 0;
 	width: 100%;
 	background-color: #334;
